@@ -22,7 +22,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_KEY }}
-          external_repository: your-username/your-username.github.io
+          external_repository: parkjin21004/parkjin21004.github.io
           publish_dir: ./output
           destination_dir: chrome_app_clone
           publish_branch: main
