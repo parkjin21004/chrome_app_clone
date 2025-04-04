@@ -13,16 +13,16 @@ jobs:
       - name: Checkout current repo
         uses: actions/checkout@v3
 
-      - name: Build static site
+      - name: Prepare deployment folder
         run: |
           mkdir output
-          cp -r * output/
+          rsync -av --exclude='.github' ./ output/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          external_repository: parkjin21004/parkjin21004.github.io
+          external_repository: your-username/your-username.github.io
           publish_dir: ./output
           destination_dir: chrome_app_clone
           publish_branch: main
