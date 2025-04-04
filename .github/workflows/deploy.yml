@@ -21,7 +21,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_KEY }}
           external_repository: your-username/your-username.github.io
           publish_dir: ./output
           destination_dir: chrome_app_clone
