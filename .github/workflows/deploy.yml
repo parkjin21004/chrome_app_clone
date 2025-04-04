@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages subdirectory
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v3
+
+      - name: Build static site
+        run: |
+          mkdir output
+          cp -r * output/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          external_repository: parkjin21004/parkjin21004.github.io
+          publish_dir: ./output
+          destination_dir: chrome_app_clone
+          publish_branch: main
